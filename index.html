@@ -21,6 +21,7 @@
 <body>
     <h1>Привет, Telegram!</h1>
     <p>Ваш ID: <span id="user-id"></span></p>
+    <input type="text" id="bot_input" placeholder="Write hello for TG-bot">
     <button onclick="sendData()">Отправить данные</button>
 
     <script>
@@ -32,7 +33,8 @@
 
         // Функция для отправки данных обратно в бота
         function sendData() {
-            tg.sendData(JSON.stringify({ action: 'button_click', userId: tg.initDataUnsafe.user?.id }));
+            const inpBot = document.getElementById("bot_input").value
+            tg.sendData(JSON.stringify({ action: `${inpBot}` }));
             tg.close(); // Закрываем Web App
         }
     </script>
