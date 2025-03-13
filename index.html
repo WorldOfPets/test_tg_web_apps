@@ -33,7 +33,7 @@
         tg.MainButton.show() 
         window.Telegram.WebApp.onEvent('mainButtonClicked', function(){
             alert("hui")
-            tg.MainButton.sendData("some string that we need to send"); 
+            tg.sendData("some string that we need to send"); 
             //при клике на основную кнопку отправляем данные в строковом виде
         });
         // Функция для отправки данных обратно в бота
