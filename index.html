@@ -35,8 +35,9 @@
         function sendData() {
             const inpBot = document.getElementById("bot_input").value; // Получаем значение из поля ввода
             if (inpBot) {
+                alert(inpBot)
                 tg.sendData(JSON.stringify({ action: inpBot })); // Отправляем данные
-                tg.close(); // Закрываем Web App
+                //tg.close(); // Закрываем Web App
             } else {
                 alert("Пожалуйста, введите текст!");
             }
