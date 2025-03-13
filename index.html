@@ -32,8 +32,9 @@
         document.getElementById('user-id').innerText = tg.initDataUnsafe.user?.id || 'Неизвестно';
         tg.MainButton.show() 
         window.Telegram.WebApp.onEvent('mainButtonClicked', function(){
-            alert("hui")
+            
             tg.sendData("some string that we need to send"); 
+            alert("hui")
             //при клике на основную кнопку отправляем данные в строковом виде
         });
         // Функция для отправки данных обратно в бота
@@ -42,7 +43,7 @@
             if (inpBot) {
                 
                 tg.sendData("Пожалуйста, введите текст!"); // Отправляем данные
-                //tg.close(); // Закрываем Web App
+                tg.close(); // Закрываем Web App
             } else {
                 alert("Пожалуйста, введите текст!");
             }
