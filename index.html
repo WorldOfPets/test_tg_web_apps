@@ -36,7 +36,10 @@
             const inpBot = document.getElementById("bot_input").value;
             if (inpBot) {
                 tg.sendData(inpBot); // Отправляем данные
-                //tg.close(); // Закрываем Web App
+                setTimeout(() => { 
+                    tg.close();
+                }, 1000)
+                 // Закрываем Web App
             } else {
                 alert("Пожалуйста, введите текст!");
             }
