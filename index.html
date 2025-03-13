@@ -35,7 +35,13 @@
         tg.MainButton.onClick(() => {
             const inpBot = document.getElementById("bot_input").value;
             if (inpBot) {
-                tg.sendData(inpBot); // Отправляем данные
+                try {
+                    const tg = window.Telegram.WebApp;
+                    tg.sendData(inpBot); 
+                } catch (error) {
+                    alert('Error in Telegram Web App');
+                }
+                // Отправляем данные
                 setTimeout(() => { 
                     tg.close();
                 }, 1000)
