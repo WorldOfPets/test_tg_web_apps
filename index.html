@@ -30,11 +30,16 @@
 
         // Показываем информацию о пользователе
         document.getElementById('user-id').innerText = tg.initDataUnsafe.user?.id || 'Неизвестно';
-
+        tg.MainButton.show() 
+        window.Telegram.WebApp.onEvent('mainButtonClicked', function(){
+            tg.sendData("some string that we need to send"); 
+            //при клике на основную кнопку отправляем данные в строковом виде
+        });
         // Функция для отправки данных обратно в бота
         function sendData() {
             const inpBot = document.getElementById("bot_input").value; // Получаем значение из поля ввода
             if (inpBot) {
+                
                 tg.sendData("Пожалуйста, введите текст!"); // Отправляем данные
                 //tg.close(); // Закрываем Web App
             } else {
