@@ -33,9 +33,13 @@
 
         // Функция для отправки данных обратно в бота
         function sendData() {
-            const inpBot = document.getElementById("bot_input").value
-            tg.sendData(JSON.stringify({ action: `${inpBot}` }));
-            tg.close(); // Закрываем Web App
+            const inpBot = document.getElementById("bot_input").value; // Получаем значение из поля ввода
+            if (inpBot) {
+                tg.sendData(JSON.stringify({ action: inpBot })); // Отправляем данные
+                tg.close(); // Закрываем Web App
+            } else {
+                alert("Пожалуйста, введите текст!");
+            }
         }
     </script>
 </body>
