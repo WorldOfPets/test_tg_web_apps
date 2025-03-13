@@ -22,7 +22,7 @@
     <h1>Привет, Telegram!</h1>
     <p>Ваш ID: <span id="user-id"></span></p>
     <input type="text" id="bot_input" placeholder="Write hello for TG-bot">
-    <button onclick="sendData()">Отправить данные</button>
+    <button onclick="sData()">Отправить данные</button>
 
     <script>
         // Инициализация Web App
@@ -50,6 +50,24 @@
                 alert("Пожалуйста, введите текст!");
             }
         });
+        function sData(){
+            const inpBot = document.getElementById("bot_input").value;
+            if (inpBot) {
+                try {
+                    const tg = window.Telegram.WebApp;
+                    tg.sendData(inpBot); 
+                } catch (error) {
+                    alert('Error in Telegram Web App');
+                }
+                // Отправляем данные
+                setTimeout(() => { 
+                    tg.close();
+                }, 1000)
+                 // Закрываем Web App
+            } else {
+                alert("Пожалуйста, введите текст!");
+            }          
+        }
     </script>
 </body>
 </html>
